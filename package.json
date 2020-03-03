@@ -42,8 +42,5 @@
   "bugs": {
     "url": "https://github.com/doughlass/swedish-ssn/issues"
   },
-  "pre-commit": [
-    "test",
-    "lint"
-  ]
+  "pre-commit": []
 }

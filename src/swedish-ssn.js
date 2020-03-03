@@ -59,11 +59,17 @@ export default class SwedishSSN {
 
 const genderEnum = {
   MALE: 'male',
-  FEMALE: 'female'
+  MALE: 'm',
+  FEMALE: 'female',
+  FEMALE: 'f'
 }
 
-function yymmdd(birthdate, locale = "sv-SE") {
-  const formatted = birthdate.toLocaleDateString(locale, {year: "2-digit", month: "2-digit", day: "2-digit"}).replace(/\D/g, "");
+function yymmdd(birthdate, locale) {
+  if (!locale) locale = 'sv-SE';
+  var day = birthdate.toLocaleString(locale, { day: '2-digit' });   // DD
+  var month = birthdate.toLocaleString(locale, { month: '2-digit' }); // MM
+  var year = birthdate.toLocaleString(locale, { year: '2-digit' }); // YY
+  var formatted = `${year}${month}${day}`;
   return formatted;
 }
 
