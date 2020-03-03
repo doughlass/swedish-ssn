@@ -1,5 +1,5 @@
 {
-  "name": "swedish-ssn",
+  "name": "swedish-ssn-generator",
   "version": "1.0.0",
   "license": "GPL",
   "description": "Small utility for validating and generating Swedish social security number.",
