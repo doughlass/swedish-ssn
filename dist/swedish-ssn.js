@@ -24,6 +24,23 @@
     value: true
   });
 
+  var _genderEnum;
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
@@ -102,15 +119,16 @@
   exports.default = SwedishSSN;
 
 
-  var genderEnum = {
-    MALE: 'male',
-    FEMALE: 'female'
-  };
+  var genderEnum = (_genderEnum = {
+    MALE: 'male'
+  }, _defineProperty(_genderEnum, 'MALE', 'm'), _defineProperty(_genderEnum, 'FEMALE', 'female'), _defineProperty(_genderEnum, 'FEMALE', 'f'), _genderEnum);
 
-  function yymmdd(birthdate) {
-    var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "sv-SE";
-
-    var formatted = birthdate.toLocaleDateString(locale, { year: "2-digit", month: "2-digit", day: "2-digit" }).replace(/\D/g, "");
+  function yymmdd(birthdate, locale) {
+    if (!locale) locale = 'sv-SE';
+    var day = birthdate.toLocaleString(locale, { day: '2-digit' }); // DD
+    var month = birthdate.toLocaleString(locale, { month: '2-digit' }); // MM
+    var year = birthdate.toLocaleString(locale, { year: '2-digit' }); // YY
+    var formatted = '' + year + month + day;
     return formatted;
   }
 
