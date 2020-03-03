@@ -1,9 +1,9 @@
 {
-  "name": "swedish-ssn-tool",
+  "name": "swedish-ssn",
   "version": "1.0.0",
   "license": "GPL",
   "description": "Small utility for validating and generating Swedish social security number.",
-  "author": "teaddict",
+  "author": "doughlass",
   "main": "dist/swedish-ssn.js",
   "keywords": [
     "Swedish",
@@ -37,10 +37,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/teaddict/swedish-ssn"
+    "url": "https://github.com/doughlass/swedish-ssn"
   },
   "bugs": {
-    "url": "https://github.com/teaddict/swedish-ssn/issues"
+    "url": "https://github.com/doughlass/swedish-ssn/issues"
   },
   "pre-commit": [
     "test",

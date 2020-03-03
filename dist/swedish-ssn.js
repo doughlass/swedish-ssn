@@ -86,9 +86,9 @@
       }
     }, {
       key: 'generateSSNWithParameters',
-      value: function generateSSNWithParameters(birthdate, gender) {
+      value: function generateSSNWithParameters(birthdate, gender, locale) {
         var secondPart = getRandomNumber(1000, 9999, gender);
-        var randomSsn = yymmdd(birthdate) + secondPart;
+        var randomSsn = yymmdd(birthdate, locale) + secondPart;
         var ssnAsArray = parse(randomSsn);
         var checksum = getChecksum(ssnAsArray);
         ssnAsArray.push(checksum);
@@ -108,7 +108,9 @@
   };
 
   function yymmdd(birthdate) {
-    var formatted = birthdate.toLocaleDateString("en-CA", { year: "2-digit", month: "2-digit", day: "2-digit" }).replace(/\D/g, "");
+    var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "sv-SE";
+
+    var formatted = birthdate.toLocaleDateString(locale, { year: "2-digit", month: "2-digit", day: "2-digit" }).replace(/\D/g, "");
     return formatted;
   }
 

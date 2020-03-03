@@ -47,9 +47,9 @@ export default class SwedishSSN {
    * Creates a valid SSN using given date and gender.
    * @returns {String} - valid ssn.
    */
-  static generateSSNWithParameters(birthdate, gender) {
+  static generateSSNWithParameters(birthdate, gender, locale) {
     let secondPart = getRandomNumber(1000, 9999, gender);
-    let randomSsn = yymmdd(birthdate) + secondPart;
+    let randomSsn = yymmdd(birthdate, locale) + secondPart;
     let ssnAsArray = parse(randomSsn);
     const checksum = getChecksum(ssnAsArray);
     ssnAsArray.push(checksum)
@@ -62,8 +62,8 @@ const genderEnum = {
   FEMALE: 'female'
 }
 
-function yymmdd(birthdate) {
-  const formatted = birthdate.toLocaleDateString("en-CA", {year: "2-digit", month: "2-digit", day: "2-digit"}).replace(/\D/g, "");
+function yymmdd(birthdate, locale = "sv-SE") {
+  const formatted = birthdate.toLocaleDateString(locale, {year: "2-digit", month: "2-digit", day: "2-digit"}).replace(/\D/g, "");
   return formatted;
 }
 
