@@ -108,6 +108,13 @@ npm run test
 
 ```
 
+Changelog
+---------
+
+### 1.0.1
+- Admin changes
+
+
 License
 -------
 
