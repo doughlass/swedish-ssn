@@ -11,13 +11,7 @@ Installation
 NPM
 
 ```sh
-npm install swedish-ssn-tool
-```
-
-Bower
-
-```sh
-bower install swedish-ssn-tool
+npm install swedish-ssn-generator
 ```
 
 Usage
@@ -26,7 +20,7 @@ Usage
 ES6
 
 ``` js
-import SwedishSSN from "../swedish-ssn"
+import SwedishSSN from "../swedish-ssn-generator"
 const isValid = SwedishSSN.validate('870430-2713');
 console.log(isValid);
 //  result true
@@ -36,7 +30,7 @@ console.log(isValid);
 Using global namespace.
 
 ``` html
-<script src="https://unpkg.com/swedish-ssn-tool/swedish-ssn.min.js"></script>
+<script src="https://unpkg.com/swedish-ssn-generator/swedish-ssn.min.js"></script>
 <script>
   // This is valid SSN
   var isValid = SwedishSSN.validate('20870430-2713');
@@ -113,16 +107,6 @@ npm run dist
 npm run test
 
 ```
-Test Online
----------
-[check from my website](http://teaddict.net/swedish-ssn.html)
-
-Changelog
----------
-
-### 1.0.0
-- Initial release
-
 
 License
 -------

@@ -41,7 +41,7 @@ describe("SwedishSSN", () => {
   describe("#generateSSNWithParameters", () => {
     it("Should generate valid Swedish SSN with gender female", () => {
       const birthDate = new Date();
-      let fakeSSN = SwedishSSN.generateSSNWithParameters(birthDate,'female')
+      let fakeSSN = SwedishSSN.generateSSNWithParameters(birthDate,'f', null)
       let genderNum = Number(fakeSSN.split('')[9]);
       expect(SwedishSSN.validate(fakeSSN)).to.equal(true)
       expect((genderNum%2) === 0).to.equal(true)
@@ -49,7 +49,7 @@ describe("SwedishSSN", () => {
 
     it("Should generate valid Swedish SSN with gender male", () => {
       const birthDate = new Date();
-      let fakeSSN = SwedishSSN.generateSSNWithParameters(birthDate,'male')
+      let fakeSSN = SwedishSSN.generateSSNWithParameters(birthDate,'male', null)
       let genderNum = Number(fakeSSN.split('')[9]);
       expect(SwedishSSN.validate(fakeSSN)).to.equal(true)
       expect((genderNum%2) !== 0).to.equal(true)
